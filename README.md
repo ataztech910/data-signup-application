@@ -1,1 +1,1 @@
-# fiskaly-code-chalenge
+# Fiskaly code challenge
