@@ -1,0 +1,16 @@
+{
+    "include": ["./src/**/*", "config.ts"],
+    "compilerOptions": {
+      "strict": true,
+      "esModuleInterop": true,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "forceConsistentCasingInFileNames": true,
+      "target": "ES2020",
+      "skipLibCheck": true,
+      "downlevelIteration": true,
+      "sourceMap": true,
+      "moduleResolution": "Node",
+      "outDir": "./build/"
+    }
+  }
