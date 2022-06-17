@@ -1,6 +1,6 @@
-import type { PlaywrightTestConfig } from '@playwright/test'
-import { devices } from '@playwright/test'
-import { appConfig } from './config'
+import type { PlaywrightTestConfig } from '@playwright/test';
+import { devices } from '@playwright/test';
+import { appConfig } from './config';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
