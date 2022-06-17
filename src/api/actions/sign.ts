@@ -16,7 +16,7 @@ const sign = (req: Request, res: Response): void | false => {
         res.send(makeError(HttpCodes.ERROR, HttpAnswers.WRONG_CRYPTO_TYPE));
         return false;
     }
-    const cryptoContext = new CryptoContext(CryptoStrategies['ec']);
+    const cryptoContext = new CryptoContext(CryptoStrategies[req.body.type as keyof typeof CryptoTypes]);
     cryptoContext[Actions.GENERATE_KEY_PAIR]().then( result => {
         res.send(JSON.stringify(result));
     });
