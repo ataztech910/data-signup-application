@@ -1,1 +1,1 @@
-# Fiskaly code challenge
+# Data signup application
