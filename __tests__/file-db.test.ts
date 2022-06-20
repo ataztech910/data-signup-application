@@ -53,7 +53,6 @@ describe('File based strategy test', () => {
         mockDeviceChangeCounter.signatureCounter = 1;
 
         const update = data[DataActions.WRITE_INTO_LIST](mockDeviceChangeCounter);
-        console.log((update as IDevice).signatureCounter)
         expect((update as IDevice).signatureCounter).toBe(1);
     });
 });

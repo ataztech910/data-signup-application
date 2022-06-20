@@ -39,11 +39,9 @@ export default class FileBaseStrategy implements IDataBase {
      * what is under the hood of actions 
      */
     [DataActions.READ_LIST](): IDevice[] {
-        console.log(this.data);
         return this.data;
     }
     [DataActions.WRITE_INTO_LIST](device: IDevice): IDevice | Error {
-       console.log(device);
        const findIndex = this.data.findIndex((item: IDevice) => item.uuid === device.uuid);
        if (findIndex === -1) {
         this.data.push(device);
