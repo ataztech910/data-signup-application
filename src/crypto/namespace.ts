@@ -1,4 +1,6 @@
-enum Actions {
+import { appConfig } from "../../config";
+
+enum CryptoActions {
     SIGN = 'sign',
     GENERATE_KEY_PAIR = 'generateKeyPair'
 }
@@ -30,10 +32,10 @@ const cryptoOptions = {
         privateKeyEncoding: {
           type: 'pkcs8',
           format: 'der',
-          cipher: 'aes-192-cbc',
-          passphrase: 'fiskaly is AWESOME'
+          cipher: appConfig.aes,
+          passphrase: appConfig.salt
         }
       }
 };
 
-export { Actions, CryptoTypes, cryptoOptions };
+export { CryptoActions, CryptoTypes, cryptoOptions };

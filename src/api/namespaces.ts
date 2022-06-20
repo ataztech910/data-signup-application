@@ -1,11 +1,9 @@
 /**
- * We can define here only supported by the system http methods
+ * We can define here only supported by the system http methods. As example only get/post
  */
 enum HttpMethods {
     get = 'get',
-    post = 'post',
-    put = 'put',
-    delete = 'delete'  
+    post = 'post' 
 }
 
 /**
