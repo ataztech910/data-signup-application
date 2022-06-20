@@ -1,5 +1,7 @@
 const appConfig = {
     devServer: 'npm run dev',
+    dbDriver: 'file-base',
+    dataFileName: 'data/data.json',
     host: 'http://localhost',
     port: 3030,
     apiVersion: 'v1',

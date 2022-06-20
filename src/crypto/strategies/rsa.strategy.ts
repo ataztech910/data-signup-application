@@ -2,11 +2,11 @@ import crypto from 'crypto';
 import { appConfig } from '../../../config';
 import ICrypto from '../../types/crypto-type.interface';
 import keyPairInterface from '../../types/key-pair.interface';
-import { Actions, CryptoTypes } from '../namespace';
+import { CryptoActions, CryptoTypes } from '../namespace';
 
 export default class RsaStrategy implements ICrypto {
     name = CryptoTypes.rsa;
-    [Actions.SIGN](dataToBeSigned: string, keyPair: keyPairInterface): string {
+    [CryptoActions.SIGN](dataToBeSigned: string, keyPair: keyPairInterface): string {
         try {
             const cipher = crypto.createCipheriv(
                 appConfig.aes, 
