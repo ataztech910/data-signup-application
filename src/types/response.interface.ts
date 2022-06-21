@@ -1,4 +1,4 @@
-import { ResponseKeys } from "../persistance/namespace";
+import { ResponseKeys } from "../core/namespace";
 
 export default interface IResponse {
     [ResponseKeys.SIGNATURE]: string;
