@@ -10,6 +10,11 @@ enum CryptoTypes {
     rsa = 'rsa'
 }
 
+enum Errors {
+  NO_STRATEGY = 'No strategy selected',
+  DEVICE_IS_NOT_READY = 'Device is not ready'
+}
+
 const cryptoOptions = {
     [CryptoTypes.ec]: {
         namedCurve: 'secp256k1',
@@ -38,4 +43,4 @@ const cryptoOptions = {
       }
 };
 
-export { CryptoActions, CryptoTypes, cryptoOptions };
+export { CryptoActions, CryptoTypes, cryptoOptions, Errors };

@@ -1,6 +1,6 @@
 import ICrypto from "../types/crypto-type.interface";
 import KeyPair from "../types/key-pair.interface";
-import { CryptoActions, cryptoOptions } from "./namespace";
+import { CryptoActions, cryptoOptions, Errors } from "./namespace";
 import crypto, { KeyObject } from 'crypto';
 
 export default class CryptoContext {
@@ -10,22 +10,17 @@ export default class CryptoContext {
         this.strategy = strategy;
     }
 
-    /**
-     * This method is not neccessary for current realisation but can be useful if we will need 
-     * to change strategy while having a user session
-     */
-    public setStrategy(strategy: ICrypto) {
-        this.strategy = strategy;
-    }
-
     [CryptoActions.GENERATE_KEY_PAIR](): Promise<KeyPair> {
       return new Promise<KeyPair>((resolve, reject) => {
+            if(!this.strategy) {
+              reject(Errors.NO_STRATEGY);
+            }
             const cryptoType: any = this.strategy.name;
             try {
               crypto.generateKeyPair(cryptoType, cryptoOptions[this.strategy.name], 
                   (err: Error | null, publicKey: KeyObject, privateKey: KeyObject) => {
                 if (err) {
-                  console.log(`Encountered an error during ${cryptoType} key pair generation: ${err.message}`);
+                  console.error(`Encountered an error during ${cryptoType} key pair generation: ${err.message}`);
                 }
         
                 const keyPair: KeyPair = {
@@ -36,15 +31,13 @@ export default class CryptoContext {
                 resolve(keyPair);
               });
             } catch (e) {
-              console.log(`Failed to generated ${this.strategy.name} key pair`);
+              console.error(`Failed to generated ${this.strategy.name} key pair`);
               reject(e);
             }
           });
     }
     
-    [CryptoActions.SIGN](dataToBeSigned: string, keyPair: KeyPair) {
-       console.log(this.strategy.name);
-        const result = this.strategy[CryptoActions.SIGN](dataToBeSigned, keyPair);
-        console.log(result);
+    [CryptoActions.SIGN](dataToBeSigned: string, keyPair: KeyPair): string {
+        return this.strategy[CryptoActions.SIGN](dataToBeSigned, keyPair);
     }
 }

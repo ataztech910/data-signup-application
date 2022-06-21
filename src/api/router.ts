@@ -1,7 +1,8 @@
 import IRouter from "../types/router.interface";
 import { HttpMethods } from "./namespaces";
 import { health } from "./actions/health";
-import { sign } from "./actions/sign";
+import { signTransaction } from "./actions/sign-transaction";
+import { createDevice } from "./actions/create-device";
 
 
 /**
@@ -17,9 +18,14 @@ const router: Array<IRouter> = [
     },
     {
         type: HttpMethods.post,
-        url: 'sign',
-        actionObject: sign
-    }
+        url: 'sign-transaction',
+        actionObject: signTransaction
+    },
+    {
+        type: HttpMethods.post,
+        url: 'create-device',
+        actionObject: createDevice
+    },
 ];
 
 export { router };

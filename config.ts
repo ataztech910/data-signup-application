@@ -1,7 +1,10 @@
+import { DbDrivers } from "./src/core/namespace";
+
 const appConfig = {
     devServer: 'npm run dev',
-    dbDriver: 'file-base',
-    dataFileName: 'data/data.json',
+    dbDriver: DbDrivers.FILE_BASE,
+    devicesFileName: 'data/devices.json',
+    signaturesFileName: 'data/signatures.json',
     host: 'http://localhost',
     port: 3030,
     apiVersion: 'v1',
