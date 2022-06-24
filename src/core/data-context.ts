@@ -49,6 +49,8 @@ export default class DataContext {
         const device = this[DataActions.GET_ACTIVE_DEVICE]();
         if (!device) {
             throw Error(Errors.DEVICE_IS_NOT_READY);
+        } else if (data.trim().length === 0) {
+            throw Error(Errors.NO_DATA_PROVIDED);
         }
         const cryptoContext = new CryptoContext(CryptoStrategies[device.cryptoAlgorythm]);
         const keyPair = {
