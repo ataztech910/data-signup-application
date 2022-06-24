@@ -12,7 +12,8 @@ enum CryptoTypes {
 
 enum Errors {
   NO_STRATEGY = 'No strategy selected',
-  DEVICE_IS_NOT_READY = 'Device is not ready'
+  DEVICE_IS_NOT_READY = 'Device is not ready',
+  NO_DATA_PROVIDED = 'No data provided'
 }
 
 const cryptoOptions = {
