@@ -2,8 +2,6 @@
 
 This is an application to sign the provided data using different strategies
 
-Related to https://github.com/fiskaly/coding-challenges/tree/main/signing-service-challenge-ts
-
 To start using locally please do:
 
 1. Clone the repository
